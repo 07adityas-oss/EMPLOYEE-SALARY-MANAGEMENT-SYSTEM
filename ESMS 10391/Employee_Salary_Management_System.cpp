@@ -5,7 +5,6 @@
 #include <limits>
 using namespace std;
 
-// Employee class demonstrates encapsulation, constructors and member functions.
 class Employee {
 private:
     int employeeId;
@@ -19,7 +18,6 @@ private:
     double commissionRate;
 
 public:
-    // Default constructor
     Employee() {
         employeeId = 0;
         employeeName = "Not Set";
@@ -32,7 +30,6 @@ public:
         commissionRate = 0.0;
     }
 
-    // Parameterized constructor
     Employee(int id, string name, string post, double basic,
              double ta, double da, double hra, int leaves, double commission) {
         employeeId = id;
@@ -46,13 +43,11 @@ public:
         commissionRate = commission;
     }
 
-    // Member function to calculate salary components
     double calculateTA() const { return basicSalary * taRate / 100.0; }
     double calculateDA() const { return basicSalary * daRate / 100.0; }
     double calculateHRA() const { return basicSalary * hraRate / 100.0; }
     double calculateCommission() const { return basicSalary * commissionRate / 100.0; }
 
-    // Assumption: each unpaid leave deducts 1/30th of basic salary.
     double calculateLeaveDeduction() const {
         return (basicSalary / 30.0) * leavesTaken;
     }
